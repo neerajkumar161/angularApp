@@ -1,0 +1,29 @@
+.form-control {
+    margin: 15px 0 15px 0;
+}
+.container {
+    height: 540px;
+    padding-top: 100px;
+    padding-left: 55px;
+}
+
+.btn {
+width: 30%;
+}
+img{
+width: 300px;   
+}
+
+.btnProd{
+width: 35%;
+}
+
+.col-md-5{
+padding: 0 90px 0 59px;
+}
+
+.color{
+    background-color: lightslategray;
+    color: black;
+    border:none;
+}

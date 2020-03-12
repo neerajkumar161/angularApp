@@ -1,0 +1,37 @@
+<app-header></app-header>
+ <form [formGroup]="myForm">
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <img class="user" src="../../../assets/userProducts/user.svg" alt="adduser">
+        </div>
+        <div class="col-md-1">
+
+        </div>
+       
+            <div class="col-md-5">
+                <input type="text" class="form-control" placeholder="Firstname" formControlName="firstname">
+                <mat-error *ngIf="firstname.invalid && firstname.touched">
+                    Invalid Email Address
+                </mat-error>
+                <input type="text" class="form-control" placeholder="Lastname" formControlName="lastname">
+                <mat-error *ngIf="lastname.invalid && lastname.touched">
+                    Password length should > 5
+                </mat-error>
+                <input type="text" class="form-control" placeholder="Email" formControlName="email">
+                <mat-error *ngIf="email.invalid && email.touched">
+                    Invalid Email Address
+                </mat-error>
+                <input type="text" class="form-control" placeholder="Address" formControlName="address">
+                <mat-error *ngIf="address.invalid && address.touched">
+                    Address length should be > 5 characters
+                </mat-error>
+                <button type="button" class="btn btn-primary" [class.color]="myForm.invalid"  [disabled]="myForm.invalid">Add User</button>
+            </div>
+        
+        <div class="col-md-4">
+        </div>
+    </div>
+  </div>
+</form>
+<app-footer></app-footer>

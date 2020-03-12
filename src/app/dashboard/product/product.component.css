@@ -1,0 +1,24 @@
+.form-control {
+    margin: 15px 0 15px 0;
+}
+.container {
+    height: 540px;
+    padding-top: 100px;
+    padding-left:55px;
+}
+
+.btn {
+width: 30%;
+}
+
+img{
+width: 350px;   
+}
+
+.btnProd{
+width: 37%;
+}
+
+.col-md-5{
+padding: 0 90px 0 59px;
+}

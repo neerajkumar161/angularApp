@@ -1,0 +1,62 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form">
+                <span class="login100-form-title p-b-26">
+                    Sign Up 
+                </span>
+                <form [formGroup]="myForm">
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                        <input class="input100" formControlName="firstname" placeholder="firstname">
+                        <!-- <span class="focus-input100" data-placeholder="Firstname"></span> -->
+                    </div>
+                    <mat-error *ngIf="firstname.invalid && firstname.touched">
+                        Name is Required and Length should > 4
+                    </mat-error>
+                    <div class="wrap-input100 validate-input" >
+                        <input class="input100" formControlName="lastname" placeholder="lastname">
+                        <!-- <span class="focus-input100" data-placeholder="Lastname"></span> -->
+                    </div>
+                    <mat-error *ngIf="lastname.invalid && lastname.touched">
+                        Name is Required and Length should > 4
+                    </mat-error>
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                        <input class="input100" formControlName="email" placeholder="email">
+                        <!-- <span class="focus-input100" data-placeholder="Email"></span> -->
+                    </div>
+                    <mat-error *ngIf="email.invalid && email.touched">
+                        Invalid Email Address
+                    </mat-error>
+                    <div class="wrap-input100 validate-input">
+                        <!-- <span class="btn-show-pass">
+                            <i class="zmdi zmdi-eye"></i>
+                        </span> -->
+                        <input class="input100" formControlName="password" placeholder="password">
+                        <!-- <span class="focus-input100" data-placeholder="Password"></span> -->
+                    </div>
+                    <mat-error *ngIf="password.invalid && password.touched">
+                        Password in invalid
+                    </mat-error>
+    
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button class="login100-form-btn" [class.color]="myForm.invalid" [disabled]="myForm.invalid" routerLink="/login">SIGNUP</button>
+                        </div>
+                    </div>
+                </form>
+                
+
+                <div class="text-center p-t-50">
+                    <span class="txt1">
+                        Already registered?
+                    </span>
+
+                    <a class="txt2" routerLink="/login">
+                        Login
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

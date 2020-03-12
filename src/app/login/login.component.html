@@ -1,0 +1,73 @@
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form">
+                    <span class="login100-form-title p-b-26">
+                        Welcome
+                    </span>
+    
+                    <form [formGroup]="myForm">
+                        Values: {{ myForm.value | json}}
+                    
+                    <div class="wrap-input100 validate-input">
+                        <input matInput class="input100" placeholder="email" formControlName="email">
+                        
+                    </div>
+                    <mat-error *ngIf="email.invalid && email.touched">
+                        Invalid Email Address
+                    </mat-error>
+                   
+    
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+                        
+                        <input class="input100" formControlName="password" type="password" placeholder="password">
+                    </div>
+                    <mat-error *ngIf="password.invalid && password.touched">
+                        Password length should > 5
+                    </mat-error>
+    
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                                <button class="login100-form-btn" [class.color]="myForm.invalid"  [disabled]="myForm.invalid" routerLink="/dashboard">LOGIN</button>
+                        </div>
+                    </div>
+                    <div class="text-center p-t-20">
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+                    Forget Password?
+                </button>
+                    </div>
+                </form>
+                
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="col-form-label">Enter your email</label>
+                                <input type="text" class="form-control">
+                              </div>
+                        </div>
+                        <div class="modal-footer">
+                          <span class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</span>
+                          <span class="btn btn-primary btn-sm">Send Verification Message</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                    <div class="text-center p-t-50">
+                        <span class="txt1">
+                            Don’t have an account?
+                        </span>
+    
+                        <a class="txt2" routerLink="/signup">
+                            Sign Up
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
