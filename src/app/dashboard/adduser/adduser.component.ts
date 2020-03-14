@@ -34,8 +34,6 @@ export class AdduserComponent implements OnInit {
         Validators.minLength(5)
       ]] 
     });
-
-    
   }
   
   get firstname(){
@@ -51,7 +49,7 @@ export class AdduserComponent implements OnInit {
     return this.myForm.get('password');
   }
   // When user submit the form
-  onClick(myForm: any){ 
+  onClick(){ 
     let formData = this.myForm.value; 
     console.log(formData.firstname);
     var userData = {
@@ -60,16 +58,10 @@ export class AdduserComponent implements OnInit {
       email: formData.email,
       password: formData.password
     }
-
-    this.registerUser(userData);
+    this.newService.addUser(userData)
+    .subscribe(res => {
+      alert(res.message);
+      this.serverResponse = res.message;
+    })
   }
-  registerUser(data) {
-    this.newService.addUser(data)
-        .subscribe(res => {
-          console.log('Message',res.message);
-          this.serverResponse = res.message;
-        })
-  }
-
-
 }

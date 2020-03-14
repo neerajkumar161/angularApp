@@ -51,9 +51,9 @@ export class ProductComponent implements OnInit {
     return this.myForm.get('pimg');
   }
 
-  onClick(myForm){
+  onClick(){
     let formData = this.myForm.value;
-    console.log(formData.pname);
+    // console.log(formData.pname);
     var registerData = {
       pID: formData.pid,
       pName: formData.pname,
@@ -61,13 +61,10 @@ export class ProductComponent implements OnInit {
       pImage: formData.pimg
     }
 
-    this.addProduct(registerData);
-  }
-
-  addProduct(data){
-      this.newService.addProduct(data)
+    this.newService.addProduct(registerData)
         .subscribe(res => {
-            console.log('Message',res);
+          console.log('im here2');
+            console.log('Message',res.message);
             this.serverResponse = res.message;
         })
   }

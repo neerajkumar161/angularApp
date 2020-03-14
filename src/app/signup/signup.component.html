@@ -5,7 +5,7 @@
                 <span class="login100-form-title p-b-26">
                     Sign Up 
                 </span>
-                <form [formGroup]="myForm">
+                <form [formGroup]="myForm" (ngSubmit)="registerUser()">
                     <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
                         <input class="input100" formControlName="firstname" placeholder="firstname">
                         <!-- <span class="focus-input100" data-placeholder="Firstname"></span> -->
@@ -41,7 +41,7 @@
                     <div class="container-login100-form-btn">
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
-                            <button class="login100-form-btn" [class.color]="myForm.invalid" [disabled]="myForm.invalid" routerLink="/login">SIGNUP</button>
+                            <button type="submit" class="login100-form-btn" [class.color]="myForm.invalid" [disabled]="myForm.invalid">SIGNUP</button>
                         </div>
                     </div>
                 </form>

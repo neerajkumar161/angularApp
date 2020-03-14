@@ -17,11 +17,19 @@ export class NewService {
 
   getProducts() : Observable <any> 
   {
-    return this.httpClient.get('http://localhost:3000/api/products/');
+    return this.httpClient.get('http://localhost:3000/api/products');
   }
 
   addProduct(productData) : Observable <any>
   {
-    return this.httpClient.post('http://localhost:3000/api/products/',productData);
+    return this.httpClient.post('http://localhost:3000/api/products',productData);
+  }
+
+  userAuth(formData): Observable <any>{
+    return this.httpClient.post('http://localhost:3000/api/login',formData);
+  }
+
+  registerAuth(formData): Observable<any>{
+    return this.httpClient.post('http://localhost:3000/api/register',formData);
   }
 }

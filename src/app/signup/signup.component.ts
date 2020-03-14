@@ -1,3 +1,6 @@
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { NewService } from './../services/new.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 @Component({
@@ -8,7 +11,12 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 export class SignupComponent implements OnInit {
 
   myForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private newService: NewService,
+    private router: Router,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit(){
     this.myForm = this.fb.group({
@@ -42,5 +50,28 @@ export class SignupComponent implements OnInit {
   }
   get password(){
     return this.myForm.get('password');
+  }
+
+  registerUser(){
+    var formData = this.myForm.value;
+    var regData = {
+      firstName: formData.firstname,
+      lastName: formData.lastname,
+      email: formData.email,
+      password: formData.password 
+    }
+
+    this.newService.registerAuth(regData)
+        .subscribe(res=>{
+          if(res.success === true)
+        {
+          this.toastr.success(res.message);
+          this.router.navigateByUrl('/login');
+        }
+        else{
+          this.toastr.warning(res.message);
+          console.log(res.message);
+        }
+        })
   }
 }

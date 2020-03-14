@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { ToastrModule, ToastRef } from 'ngx-toastr';
 // import { MatInputModule } from '@angular/material/input';
 // import { MatSelectModule } from '@angular/material/select';
 // import { MatButtonModule } from '@angular/material/button';
@@ -23,7 +24,12 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    ToastrModule.forRoot({
+      timeOut:5000,
+      positionClass:'toast-top-right',
+      preventDuplicates: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
