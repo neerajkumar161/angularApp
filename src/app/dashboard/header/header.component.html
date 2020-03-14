@@ -18,13 +18,21 @@
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <button class="btn btn-primary" id="menu-toggle">></button>
-          <a class="nav-link">MyLogo</a>
+          <a class="nav-link" routerLink="/dashboard">MyLogo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <!-- UserList -->
+            <li routerLinkActive="active current">
+              <a class="nav-link" routerLink="/dashboard/userlist">User List<span class="sr-only">(current)</span></a>
+            </li>
+            <!-- ProductList -->
+            <li routerLinkActive="active current">
+              <a class="nav-link" routerLink="/dashboard/productlist">Product List<span class="sr-only">(current)</span></a>
+            </li>
             <li routerLinkActive="active current">
               <a class="nav-link" routerLink="/dashboard/adduser">Add User<span class="sr-only">(current)</span></a>
             </li>
@@ -39,7 +47,7 @@
                 <a class="dropdown-item" href="#">Account</a>
                 <a class="dropdown-item" href="#">Setting</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Logout</a>
+                <a class="dropdown-item" routerLink="/login">Logout</a>
               </div>
             </li>
           </ul>

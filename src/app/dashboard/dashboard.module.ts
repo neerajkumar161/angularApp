@@ -13,8 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SectionComponent } from './section/section.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { UserListComponent } from './user-list/user-list.component';
 @NgModule({
-  declarations:  [SidebarComponent, FooterComponent, DashboardComponent, ProductComponent, HeaderComponent, AdduserComponent],
+  declarations:  [SidebarComponent, FooterComponent, DashboardComponent, ProductComponent, HeaderComponent, AdduserComponent, SectionComponent, UserListComponent, ProductListComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,

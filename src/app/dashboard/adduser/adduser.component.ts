@@ -1,3 +1,4 @@
+import { NewService } from './../../services/new.service';
 import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 @Component({
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdduserComponent implements OnInit {
 
+  serverResponse: any;
   myForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private newService: NewService
+    ) { }
 
   ngOnInit(){
     this.myForm = this.fb.group({
@@ -24,13 +29,15 @@ export class AdduserComponent implements OnInit {
         Validators.required,
         Validators.email
       ]],
-      address: ['',[
+      password: ['',[
         Validators.required,
         Validators.minLength(5)
       ]] 
     });
-  }
 
+    
+  }
+  
   get firstname(){
     return this.myForm.get('firstname');
   }
@@ -40,8 +47,29 @@ export class AdduserComponent implements OnInit {
   get email(){
     return this.myForm.get('email');
   }
-  get address(){
-    return this.myForm.get('address');
+  get password(){
+    return this.myForm.get('password');
   }
+  // When user submit the form
+  onClick(myForm: any){ 
+    let formData = this.myForm.value; 
+    console.log(formData.firstname);
+    var userData = {
+      firstName: formData.firstname, 
+      lastName: formData.lastname,
+      email: formData.email,
+      password: formData.password
+    }
+
+    this.registerUser(userData);
+  }
+  registerUser(data) {
+    this.newService.addUser(data)
+        .subscribe(res => {
+          console.log('Message',res.message);
+          this.serverResponse = res.message;
+        })
+  }
+
 
 }

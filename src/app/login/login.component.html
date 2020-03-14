@@ -1,3 +1,4 @@
+{{ userList | json }}
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
@@ -5,9 +6,10 @@
                     <span class="login100-form-title p-b-26">
                         Welcome
                     </span>
-    
+                    
                     <form [formGroup]="myForm">
                         Values: {{ myForm.value | json}}
+                        
                     
                     <div class="wrap-input100 validate-input">
                         <input matInput class="input100" placeholder="email" formControlName="email">

@@ -1,4 +1,5 @@
 <app-header></app-header>
+<form [formGroup]="myForm" (ngSubmit)="onClick(myForm)">
 <div class="container">
     <div class="row">
         <div class="col-md-5">
@@ -8,14 +9,28 @@
             
         </div>
         <div class="col-md-5">
-            <input type="text" class="form-control" placeholder="Product ID">
-            <input type="text" class="form-control" placeholder="Product Name">
-            <input type="text" class="form-control" placeholder="Product Description">
-            <input type="text" class="form-control" placeholder="Seller Name">
-            <input type="text" class="form-control" placeholder="Seller Address">
-            <button type="button" class="btn btn-primary btnProd">Add Product</button>
+            <input type="text" class="form-control" placeholder="Product ID" formControlName="pid">
+            <mat-error *ngIf="pid.invalid && pid.touched">
+                Range should b/w 1 and 100
+            </mat-error>
+            <input type="text" class="form-control" placeholder="Product Name" formControlName="pname">
+            <mat-error *ngIf="pname.invalid && pname.touched">
+                Min length should > 5
+            </mat-error>
+            <input type="text" class="form-control" placeholder="Product Description" formControlName="pdesc">
+            <mat-error *ngIf="pdesc.invalid && pdesc.touched">
+                Min length should > 5
+            </mat-error>
+            <input type="text" class="form-control" placeholder="Product Image" formControlName="pimg">
+            <mat-error *ngIf="pimg.invalid && pimg.touched">
+                
+            </mat-error>
+            <input type="submit" class="btn btn-primary btnProd" [class.color]="myForm.invalid" [disabled]="myForm.invalid" value="Add Product">
+            <span><p> </p> {{ serverResponse }} </span>
         </div>
     </div>
-      
+    
   </div>
+</form>
+  
 <app-footer></app-footer>

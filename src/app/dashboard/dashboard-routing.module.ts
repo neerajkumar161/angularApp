@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component'
 import { ProductComponent } from './product/product.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 const routes: Routes = [
   {
@@ -14,6 +16,12 @@ const routes: Routes = [
   },
   {
     path:'adduser', component:AdduserComponent
+  },
+  {
+    path:'userlist', component: UserListComponent 
+  },
+  {
+    path:'productlist', component:ProductListComponent
   }
 ];
 

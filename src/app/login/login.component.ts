@@ -1,3 +1,4 @@
+import { NewService } from './../services/new.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
@@ -8,7 +9,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 // public mytext:string=''
 myForm : FormGroup;
-constructor(private fb: FormBuilder) { }
+userList: any;
+constructor(
+  private fb: FormBuilder,
+  private newService: NewService
+  ) { }
 
 ngOnInit() {
   this.myForm = this.fb.group({
@@ -21,12 +26,14 @@ ngOnInit() {
       Validators.minLength(5)
     ]]
   });
+  
 }
 
-get email(){
+get email(){ 
   return this.myForm.get('email');
 }
 get password(){
   return this.myForm.get('password');
 }
+
 }
