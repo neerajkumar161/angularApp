@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
+import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
   {

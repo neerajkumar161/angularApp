@@ -7,6 +7,7 @@
             <th scope="col">Product Name</th>
             <th scope="col">Product Description</th>
             <th scope="col">Product Image</th>
+            <th scope="col">Update/Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -15,6 +16,9 @@
             <td>{{ pList.pName }}</td>
             <td>{{ pList.pDesc }}</td>
             <td>{{ pList.pImage }}</td>
+            <td><button class="btn btn-warning" routerLink="/dashboard/product/{{pList._id}}" (click)="editClicked(pList._id,pList.pName,pList.pDesc,pList.pImage)">Edit</button>
+              &nbsp;<button class="btn btn-danger" (click)="deleteProduct(pList._id)">Delete</button>
+            </td>
           </tr>
         </tbody>
       </table>

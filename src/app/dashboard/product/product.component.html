@@ -1,5 +1,5 @@
 <app-header></app-header>
-<form [formGroup]="myForm" (ngSubmit)="onClick()">
+<form [formGroup]="myForm">
 <div class="container">
     <div class="row">
         <div class="col-md-5">
@@ -9,23 +9,25 @@
             
         </div>
         <div class="col-md-5">
-            <input type="text" class="form-control" placeholder="Product ID" formControlName="pid">
+            <input type="text" class="form-control" placeholder="Product ID" formControlName="pid" [(ngModel)]="productData.pID">
             <mat-error *ngIf="pid.invalid && pid.touched">
                 Range should b/w 1 and 100
             </mat-error>
-            <input type="text" class="form-control" placeholder="Product Name" formControlName="pname">
+            <input type="text" class="form-control" placeholder="Product Name" formControlName="pname" [(ngModel)]="productData.pName">
             <mat-error *ngIf="pname.invalid && pname.touched">
                 Min length should > 5
             </mat-error>
-            <input type="text" class="form-control" placeholder="Product Description" formControlName="pdesc">
+            <input type="text" class="form-control" placeholder="Product Description" formControlName="pdesc" [(ngModel)]="productData.pDesc">
             <mat-error *ngIf="pdesc.invalid && pdesc.touched">
                 Min length should > 5
             </mat-error>
-            <input type="text" class="form-control" placeholder="Product Image" formControlName="pimg">
+            <input type="text" class="form-control" placeholder="Product Image" formControlName="pimg" [(ngModel)]="productData.pImage">
             <mat-error *ngIf="pimg.invalid && pimg.touched">
                 
             </mat-error>
-            <input type="submit" class="btn btn-primary btnProd" [class.color]="myForm.invalid" [disabled]="myForm.invalid" value="Add Product">
+            <input type="submit" class="btn btn-primary btnProd" [class.color]="myForm.invalid" [disabled]="myForm.invalid" value="Add Product" (click)="onClick()">
+            &nbsp;<input type="submit" class="btn btn-warning" [class.color]="myForm.invalid" [disabled]="myForm.invalid" value="Update" (click)="updateProduct()">
+
             <span><p> </p> {{ serverResponse }} </span>
         </div>
     </div>
