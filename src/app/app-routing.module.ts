@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { Routes, RouterModule} from '@angular/router';
 import { AuthService } from './services/auth.service';
+import { PagenotfoundComponent } from './dashboard/pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   {
@@ -13,8 +14,9 @@ const routes: Routes = [
     path:'signup', loadChildren: () => ( import('./signup/signup.module').then(m => m.SignupModule))
   },
   {
-    path:'dashboard', loadChildren: () => ( import('./dashboard/dashboard.module').then(m => m.DashboardModule))
+    path:'dashboard', loadChildren: () => ( import('./dashboard/dashboard.module').then(m => m.DashboardModule)), canActivate: [AuthService]
   },
+  { path: '**', component: PagenotfoundComponent }    // Others path - Not found
 ];
 
 @NgModule({

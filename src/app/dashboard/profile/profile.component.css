@@ -1,0 +1,21 @@
+.container{
+    text-align: center;
+}
+
+img{
+    margin-top: 120px;
+    height: 200px;
+}
+
+p{
+    border:1px solid black;
+}
+
+.userinfo {
+    text-align: left;
+    margin-top: 150px;
+}
+
+.row {
+   margin-bottom: 100px;
+}

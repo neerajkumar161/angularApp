@@ -16,8 +16,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SectionComponent } from './section/section.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
-  declarations:  [SidebarComponent, FooterComponent, DashboardComponent, ProductComponent, HeaderComponent, AdduserComponent, SectionComponent, UserListComponent, ProductListComponent],
+  declarations:  [SidebarComponent, FooterComponent, DashboardComponent, ProductComponent, HeaderComponent, AdduserComponent, SectionComponent, UserListComponent, ProductListComponent, PagenotfoundComponent, ProfileComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,

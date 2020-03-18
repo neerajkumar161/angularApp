@@ -1,5 +1,6 @@
 <app-header></app-header>
 <div class="tb">
+  <button class="btn btn-primary" routerLink="/dashboard/product">Add Product</button>
     <table class="table">
         <thead class="thead-dark">
           <tr>
@@ -17,10 +18,11 @@
             <td>{{ pList.pDesc }}</td>
             <td>{{ pList.pImage }}</td>
             <td><button class="btn btn-warning" routerLink="/dashboard/product/{{pList._id}}" (click)="editClicked(pList._id,pList.pName,pList.pDesc,pList.pImage)">Edit</button>
-              &nbsp;<button class="btn btn-danger" (click)="deleteProduct(pList._id)">Delete</button>
+              <button class="btn btn-danger" (click)="deleteProduct(pList._id)">Delete</button>
             </td>
           </tr>
         </tbody>
       </table>
+      
 </div>
   <app-footer></app-footer>

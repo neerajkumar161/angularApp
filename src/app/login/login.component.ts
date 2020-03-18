@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
 myForm : FormGroup;
 userList: any;
+
 constructor(
   private fb: FormBuilder,
   private newService: NewService,
@@ -29,6 +30,8 @@ ngOnInit() {
       Validators.minLength(5)
     ]]
   });
+
+ 
   
 }
 
@@ -51,6 +54,9 @@ loginUser(){
       .subscribe(res => {
         if(res.success === true)
         {
+           // // LocalStorage
+          localStorage.setItem('key',res.token);
+          localStorage.setItem('username',res.data._id);
           this.toastr.success(res.message);
           this.router.navigateByUrl('/dashboard');
         }

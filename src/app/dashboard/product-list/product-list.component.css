@@ -1,3 +1,9 @@
-.tb{
+/* .tb{
     height: 540px;
+} */
+.btn-primary{
+    margin: 10px 0 10px 10px;
+}
+.btn-warning,.btn-danger{
+    margin:0 5px 0 5px;
 }

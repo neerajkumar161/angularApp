@@ -6,10 +6,14 @@ import { DashboardComponent } from './dashboard.component'
 import { ProductComponent } from './product/product.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
     path:'', component:DashboardComponent
+  },
+  {
+    path:'myprofile', component:ProfileComponent
   },
   {
     path:'product',component:ProductComponent
